@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de preguntas</title>
+</head>
+<body onload="comenzarCuentaRegresiva()">
+
+    <h2>Responde a las preguntas lo más rápido que puedas <span id="cuentaRegresiva"></span></h2>
+
+    <p>1. Cual es la capital de Francia</p>
+    <input type="text" id="respuesta1">
+
+     <p>2. Cual es la capital de Colombia</p>
+    <input type="text" id="respuesta2">
+
+     <p>3. Cual es el simbolo quimico del Oxigeno</p>
+    <input type="text" id="respuesta3">
+
+     <p>4. Cual es la capital de Argentina</p>
+    <input type="text" id="respuesta4">
+    <br><br>
+    <button onclick="finalizado()">Terminé</button>
+    <br><br>
+    <button onclick="volverAintentar()">Volver a intentar</button>
+
+    <audio id="audioFinal">
+        <source src="gameover (1).mp3" type="audio/mpeg">
+        Sonido no habilitado
+    </audio>
+
+    <script>
+        let tiempoTerminado;
+        let intervaloDeTiempo;
+
+        function comenzarCuentaRegresiva() {
+            tiempoTerminado = setTimeout(tiempoCumplido, 30000);
+            intervaloDeTiempo = setInterval(tictac, 1000);
+
+            document.getElementById("cuentaRegresiva").textContent = 30
+        }
+
+        function tictac() {
+            let tiempo = document.getElementById("cuentaRegresiva").textContent;
+
+            document.getElementById("cuentaRegresiva").textContent = tiempo - 1;
+        }
+
+        function tiempoCumplido() {
+            clearInterval(intervaloDeTiempo);
+             document.getElementById("cuentaRegresiva").textContent = 0;
+             document.getElementById("audioFinal").play();
+             alert("Game Over")
+        }
+
+        function finalizado() {
+            clearTimeout(tiempoTerminado);
+            clearInterval(intervaloDeTiempo);
+
+            let fecha = new Date();
+            let mensaje = fecha.toLocaleDateString("es-ES");
+
+        } 
+
+        function volverAintentar() {
+            location.reload();
+        }
+
+    </script>
+    
+</body>
+</html>
