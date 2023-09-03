@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body>
+
+    <h1>Calculadora</h1>
+
+    <form>
+        <div>
+            <div>
+                <label for="num1">Escribe el número 1</label>
+                <input type="text" id="num1">
+            </div>
+            <div>
+                <label for="num2">Escribe el número 2</label>
+                <input type="text" id="num2">
+            </div>
+        </div>
+
+        <div>
+            <button onclick="suma()">+</button>
+            <button onclick="resta()">-</button>
+            <button onclick="multiplicar()">X</button>
+            <button onclick="dividir()">/</button>
+        </div>
+
+        <div>
+            <div>
+                <button onclick="raiz()">raiz</button>
+                <button onclick="potencia()">potencia</button>
+            </div>
+            <div>
+                <button onclick="absoluto()">absoluto</button>
+                <button onclick="aleatorio()">random</button>
+            </div>
+        </div>
+
+        <div>
+            <h3>Resultado: </h3>
+            <input type="text" id="resultado">
+        </div>
+
+        <div class="triple">
+            <button onclick="redondeo()">round</button>
+            <button onclick="piso()">floor</button>
+            <button onclick="techo()">ceil</button>
+        </div>
+
+    </form>
+    
+    <script src="./index.js"></script>
+</body>
+</html>
